@@ -12,7 +12,7 @@
 
     // 2. Create the tab footer and add the UIWebView example
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    [tabBarController addChildViewController:UIWebViewExampleController];
+//    [tabBarController addChildViewController:UIWebViewExampleController];
     
     // 3. Create the  WKWebView example for devices >= iOS 8
     if([WKWebView class]) {

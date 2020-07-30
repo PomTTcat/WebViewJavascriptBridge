@@ -23,7 +23,7 @@ static int logMaxLength = 500;
 - (id)init {
     if (self = [super init]) {
         self.messageHandlers = [NSMutableDictionary dictionary];
-        self.startupMessageQueue = [NSMutableArray array];
+        self.startupMessageQueue = nil;
         self.responseCallbacks = [NSMutableDictionary dictionary];
         _uniqueId = 0;
     }
@@ -37,7 +37,7 @@ static int logMaxLength = 500;
 }
 
 - (void)reset {
-    self.startupMessageQueue = [NSMutableArray array];
+    self.startupMessageQueue = nil;
     self.responseCallbacks = [NSMutableDictionary dictionary];
     _uniqueId = 0;
 }
