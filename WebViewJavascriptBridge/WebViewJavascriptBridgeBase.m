@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "WebViewJavascriptBridgeBase.h"
 #import "WebViewJavascriptBridge_JS.h"
+#import <WebKit/WebKit.h>
 
 @implementation WebViewJavascriptBridgeBase {
     __weak id _webViewDelegate;

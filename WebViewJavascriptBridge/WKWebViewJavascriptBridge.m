@@ -135,6 +135,7 @@
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     if (webView != _webView) { return; }
+    NSLog(@"--%@--", navigationAction.request.URL.absoluteString);
     NSURL *url = navigationAction.request.URL;
     __strong typeof(_webViewDelegate) strongDelegate = _webViewDelegate;
 
@@ -186,7 +187,9 @@
 }
 
 - (NSString*) _evaluateJavascript:(NSString*)javascriptCommand {
-    [_webView evaluateJavaScript:javascriptCommand completionHandler:nil];
+    [_webView evaluateJavaScript:javascriptCommand completionHandler:^(id _Nullable res, NSError * _Nullable error) {
+//        NSLog(@"--%@--", @"x");
+    }];
     return NULL;
 }
 

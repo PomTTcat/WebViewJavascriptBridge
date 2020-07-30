@@ -20,7 +20,8 @@
 		2CA0465C1711AC8E006DEE8B /* ExampleApp.html in Resources */ = {isa = PBXBuildFile; fileRef = 2CA0465B1711AC8D006DEE8B /* ExampleApp.html */; };
 		2CAB869B1727684300BD9ED1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CAB869A1727684300BD9ED1 /* Default-568h@2x.png */; };
 		2CEB3EC01602563600548120 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEB3EBF1602563600548120 /* UIKit.framework */; };
-		ADF73D6024CC43D500F1C5D8 /* injectJSCode.js in Resources */ = {isa = PBXBuildFile; fileRef = ADF73D5F24CC43D500F1C5D8 /* injectJSCode.js */; };
+		AD8D6E0C24CBE50C009796A0 /* iosInjectedQuery.js in Resources */ = {isa = PBXBuildFile; fileRef = AD8D6E0B24CBE50C009796A0 /* iosInjectedQuery.js */; };
+		AD8D6E0F24CBF4E2009796A0 /* JJWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8D6E0E24CBF4E2009796A0 /* JJWebview.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,9 @@
 		2CEB3EC11602563600548120 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2CEB3EC31602563600548120 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		ADF73D5F24CC43D500F1C5D8 /* injectJSCode.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = injectJSCode.js; sourceTree = "<group>"; };
+		AD8D6E0B24CBE50C009796A0 /* iosInjectedQuery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = iosInjectedQuery.js; sourceTree = "<group>"; };
+		AD8D6E0D24CBF4E2009796A0 /* JJWebview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJWebview.h; sourceTree = "<group>"; };
+		AD8D6E0E24CBF4E2009796A0 /* JJWebview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJWebview.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		2CA045B617117439006DEE8B /* ExampleApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				AD8D6E0B24CBE50C009796A0 /* iosInjectedQuery.js */,
 				2CA0465B1711AC8D006DEE8B /* ExampleApp.html */,
 				2CA045BC17117439006DEE8B /* ExampleAppDelegate.h */,
 				2CA045BD17117439006DEE8B /* ExampleAppDelegate.m */,
@@ -92,6 +97,8 @@
 				0ECB01421A0EE1BA0037FF4E /* ExampleWKWebViewController.h */,
 				0ECB01431A0EE1F20037FF4E /* ExampleWKWebViewController.m */,
 				ADF73D5F24CC43D500F1C5D8 /* injectJSCode.js */,
+				AD8D6E0D24CBF4E2009796A0 /* JJWebview.h */,
+				AD8D6E0E24CBF4E2009796A0 /* JJWebview.m */,
 				2C1562A7176B9F5400B4AE50 /* WebViewJavascriptBridge */,
 				2CA046211711A94E006DEE8B /* Supporting Files */,
 			);
@@ -205,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CA045BF17117439006DEE8B /* InfoPlist.strings in Resources */,
+				AD8D6E0C24CBE50C009796A0 /* iosInjectedQuery.js in Resources */,
 				2CA0465C1711AC8E006DEE8B /* ExampleApp.html in Resources */,
 				2CAB869B1727684300BD9ED1 /* Default-568h@2x.png in Resources */,
 				ADF73D6024CC43D500F1C5D8 /* injectJSCode.js in Resources */,
@@ -226,6 +234,7 @@
 				2CA045C217117439006DEE8B /* ExampleAppDelegate.m in Sources */,
 				0E50601C1A01B442000BEEEA /* WebViewJavascriptBridgeBase.m in Sources */,
 				2CA045C317117439006DEE8B /* main.m in Sources */,
+				AD8D6E0F24CBF4E2009796A0 /* JJWebview.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +335,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ExampleApp-iOS/ExampleApp-iOS-Prefix.pch";
 				INFOPLIST_FILE = "ExampleApp-iOS/ExampleApp-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "ExampleApp-iOS";
@@ -344,7 +353,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ExampleApp-iOS/ExampleApp-iOS-Prefix.pch";
 				INFOPLIST_FILE = "ExampleApp-iOS/ExampleApp-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "ExampleApp-iOS";

@@ -8,19 +8,22 @@
 
 #import "ExampleWKWebViewController.h"
 #import "WebViewJavascriptBridge.h"
+#import "JJWebview.h"
+
 
 @interface ExampleWKWebViewController ()<WKUIDelegate>
 
-@property WebViewJavascriptBridge* bridge;
 
+@property WebViewJavascriptBridge* bridge;
+@property WKWebView* webView;
+@property (assign, nonatomic)   int    c;
 @end
 
 @implementation ExampleWKWebViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     if (_bridge) { return; }
-    
-    
+
 //    NSBundle *bundle = [NSBundle mainBundle];
 //    NSString *filePath = [bundle pathForResource:@"injectJSCode" ofType:@"js"];
 //    NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
@@ -45,9 +48,9 @@
     [_bridge setWebViewDelegate:self];
     [_bridge disableJavscriptAlertBoxSafetyTimeout];
     
-    [_bridge registerHandler:@"testObjcCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"testObjcCallback called: %@", data);
-        responseCallback(@"Response from testObjcCallback");
+    [self.bridge registerHandler:@"openurl"
+                         handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"this is -- openurl openurl",__func__);
     }];
     [_bridge registerHandler:@"openurl" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"openurl called: %@", data);
@@ -62,15 +65,13 @@
         NSLog(@"getBaseInfo called: %@", data);
         responseCallback(@"Response from testObjcCallback");
     }];
-//    [_bridge callHandler:@"testJavascriptHandler" data:@{ @"foo":@"before ready" }];
-////    [_bridge callHandler:@"openurl" data:@{ @"foo":@"before ready" }];
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//        [_bridge callHandler:@"openurl" data:@{ @"foo":@"before ready" }];
-//    });
-    
+
     [self renderButtons:webView];
     [self loadExamplePage:webView];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
 }
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
@@ -110,9 +111,6 @@
 
 - (void)callHandler:(id)sender {
     id data = @{ @"greetingFromObjC": @"Hi there, JS!" };
-    [_bridge callHandler:@"testJavascriptHandler" data:data responseCallback:^(id response) {
-        NSLog(@"testJavascriptHandler responded: %@", response);
-    }];
 }
 
 - (void)loadExamplePage:(WKWebView*)webView {
@@ -129,7 +127,7 @@
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:nsurl];
     [request setValue:@"iphone" forHTTPHeaderField:@"OS"];
     [request setValue:@"2.0.0" forHTTPHeaderField:@"versionname"];
-    
+
     [webView loadRequest:request];
 }
 @end
