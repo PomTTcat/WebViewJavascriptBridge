@@ -1,14 +1,10 @@
 #import "ExampleAppDelegate.h"
-#import "ExampleUIWebViewController.h"
 #import "ExampleWKWebViewController.h"
 
 @implementation ExampleAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // 1. Create the UIWebView example
-    ExampleUIWebViewController* UIWebViewExampleController = [[ExampleUIWebViewController alloc] init];
-    UIWebViewExampleController.tabBarItem.title             = @"UIWebView";
 
     // 2. Create the tab footer and add the UIWebView example
     UITabBarController *tabBarController = [[UITabBarController alloc] init];

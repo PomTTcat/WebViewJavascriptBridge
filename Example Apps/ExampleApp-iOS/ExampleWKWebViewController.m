@@ -7,16 +7,15 @@
 //
 
 #import "ExampleWKWebViewController.h"
-#import "WebViewJavascriptBridge.h"
+#import "WKWebViewJavascriptBridge.h"
 #import "JJWebview.h"
 
 
 @interface ExampleWKWebViewController ()<WKUIDelegate>
 
-
-@property WebViewJavascriptBridge* bridge;
+@property WKWebViewJavascriptBridge* bridge;
 @property WKWebView* webView;
-@property (assign, nonatomic)   int    c;
+@property (assign, nonatomic)   int  c;
 @end
 
 @implementation ExampleWKWebViewController
@@ -43,8 +42,8 @@
     webView.UIDelegate = self;
     [self.view addSubview:webView];
     
-    [WebViewJavascriptBridge enableLogging];
-    _bridge = [WebViewJavascriptBridge bridgeForWebView:webView];
+    [WKWebViewJavascriptBridge enableLogging];
+    _bridge = [WKWebViewJavascriptBridge bridgeForWebView:webView];
     [_bridge setWebViewDelegate:self];
     [_bridge disableJavscriptAlertBoxSafetyTimeout];
     
