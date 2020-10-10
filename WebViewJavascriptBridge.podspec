@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'WebViewJavascriptBridge'
   s.version      = '6.0.3'
-  s.summary      = ''
+  s.summary      = 'Good'
   s.homepage     = 'https://github.com/marcuswestin/WebViewJavascriptBridge'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'marcuswestin' => 'marcus.westin@gmail.com' }
